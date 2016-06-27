@@ -215,7 +215,7 @@ def events():
     if request.method != "POST":
         return 404
     else:
-        return runHandler(handleEvent, request.data)
+        return runHandler(handleEvent, request)
 
 @app.route("/api/users", methods=["POST", "GET", "PUT"])
 def users():
