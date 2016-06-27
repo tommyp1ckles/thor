@@ -1,3 +1,5 @@
+#!/usr/local/bin/python
+
 # Thor is a simple monitoring notification service
 
 # Basic Imports
