@@ -14,3 +14,48 @@
 
 ## Init thor database.
 `sqlite3 thor.db < schema.sql`
+
+## Usage
+Give exec permissions on thor: `chmod +x thor.py`
+
+And run thor `/thor.py`
+
+## API
+
+### Create User
+`POST`: `/api/users`
+
+```
+{
+	"name": "<name>",
+	"email": "<email>",
+	"phone": "<phone>",
+	"defcon": <defcon>,
+	"token": "<THOR_API_TOKEN>"
+}
+```
+
+### Update User
+`PUT`: `/api/users`
+
+```
+{
+	"id": "<user_id>",
+	"name": "<name>*",
+	"email": "<email>*",
+	"phone": "<phone>*",
+	"defcon": <defcon>*,
+	"token": "<THOR_API_TOKEN>"
+}
+```
+
+### Send Event
+`POST`: `/api/events`
+
+```
+{
+	"node": "<node>",
+	"defcon": <defcon>,
+	"content": "<content>",
+}
+```
