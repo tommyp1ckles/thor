@@ -198,11 +198,14 @@ OK = 200
 # and authentication.
 def runHandler(fn, request):
     try:
+        data = json.loads(request.data)
         authenticateRequest(request.data)
         fn(request.data)
         return "", OK
     except AuthenticationError as err:
         return str(err), unauthorizedRequest
+    except json.JSONDecodeError as err:
+        return "Error decoding JSON", badRequest
     except SafeException as err: # Only for errors safe to be thrown to frontend.
         return str(err), badRequest
     except Exception as err:
@@ -220,7 +223,7 @@ def events():
 @app.route("/api/users", methods=["POST", "GET", "PUT"])
 def users():
     if request.method == "GET":
-        return runHandler(getUsers(), request)
+        return runHandler(getUsers, request)
     elif request.method == "POST":
         return runHandler(createUser, request)
     elif request.method == "PUT":
