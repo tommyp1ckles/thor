@@ -14,7 +14,7 @@ app.config.from_object(__name__)
 app.config.update(dict(
     DATABASE=os.path.join(app.root_path, "thor.db"),
     SECRET_KEY='development key',
-    DEBUG=True,
+    #DEBUG=True,
 ))
 
 databaseName = "./thor.db"
