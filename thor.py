@@ -16,7 +16,7 @@ app.config.from_object(__name__)
 app.config.update(dict(
     DATABASE=os.path.join(app.root_path, "thor.db"),
     SECRET_KEY='development key',
-    #DEBUG=True,
+    DEBUG=True,
 ))
 
 databaseName = "./thor.db"
@@ -232,4 +232,4 @@ def users():
         return runHandler(updateUser, request)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0")
