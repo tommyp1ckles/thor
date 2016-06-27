@@ -1,5 +1,8 @@
 # Thor
 
+## Get Dependencies
+`pip install -r requirements.txt`
+
 ## Set env variables.
 `TWILIO_SID`: Twilio account SID.
 `TWILIO_TOKEN`: Twilio API access token.
